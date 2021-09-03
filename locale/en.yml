@@ -5,11 +5,11 @@ askvortsov-article-series:
 
   forum:
     article_list:
-      title: "Part of {series} Article Series"
+      title: "{series} Article Series"
     article_series_modal:
       title: Article Series Settings
-      tag_id_label: Tag ID
-      order_label: Order
+      tag_id_label: Article Series Tag
+      order_label: Order Index (sorted ascending)
       submit_button: Submit
     discussion_controls:
         article_series_button: Article Series Settings
