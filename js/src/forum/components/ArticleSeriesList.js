@@ -3,14 +3,13 @@ import Link from "flarum/components/Link";
 
 export default class ArticleSeriesList extends Component {
   view() {
-    if (this.attrs.discussion === null) return '';
+    if (this.attrs.discussion == null) return '';
     
     const articleSeries = this.attrs.discussion.articleSeries();
 
-    if (articleSeries === null) return '';
+    if (!articleSeries) return '';
 
     const articles = articleSeries.articles();
-    console.log(articleSeries)
 
     return (
       <div className="BlogArticleList BlogSideWidget">
