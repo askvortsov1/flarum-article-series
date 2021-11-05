@@ -25,7 +25,6 @@ class SaveTagsIsListeningToDatabase
             $actor->assertAdmin();
 
             $event->tag->is_article_series = $attributes['isArticleSeries'];
-            $event->tag->save();
         }
     }
 }
