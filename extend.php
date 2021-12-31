@@ -15,8 +15,8 @@ use Askvortsov\FlarumArticleSeries\Listener\SaveDiscussionArticleSeriesToDatabas
 use Askvortsov\FlarumArticleSeries\Listener\SaveTagsIsListeningToDatabase;
 use Flarum\Api\Controller\ListDiscussionsController;
 use Flarum\Api\Controller\ShowDiscussionController;
-use Flarum\Api\Serializer\BasicDiscussionSerializer;
 use Flarum\Api\Serializer\DiscussionSerializer;
+use Flarum\Api\Serializer\BasicDiscussionSerializer;
 use Flarum\Discussion\Discussion;
 use Flarum\Extend;
 use Flarum\Tags\Api\Serializer\TagSerializer;
@@ -46,11 +46,14 @@ return [
         ->addInclude(['articleSeries', 'articleSeries.articles']),
 
     (new Extend\ApiSerializer(DiscussionSerializer::class))
+        ->hasOne('articleSeries', TagSerializer::class),
+    
+    (new Extend\ApiSerializer(BasicDiscussionSerializer::class))
+        // fixes Issues #3 https://github.com/askvortsov1/flarum-article-series/issues/3
         ->attribute('articleSeriesOrder', function($serializer, $discussion) {
             return $discussion->article_series_order;
-        })
-        ->hasOne('articleSeries', TagSerializer::class),
-
+        }),
+    
     (new Extend\ApiSerializer(TagSerializer::class))
         ->attribute('isArticleSeries', function($serializer, $tag) {
             return $tag->is_article_series;
