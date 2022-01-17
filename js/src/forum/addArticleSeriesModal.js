@@ -22,7 +22,7 @@ function addModal(items, discussion) {
 }
 
 export default function addArticleSeriesModal() {
-  extend(BlogPostController.prototype, 'manageArticleButtons', function(items) {
+  extend(BlogPostController.prototype, 'manageArticleButtons', function (items) {
     return addModal(items, this.attrs.article);
   });
   extend(DiscussionControls, 'userControls', addModal);

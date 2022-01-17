@@ -21,10 +21,13 @@ export default class ArticleSeriesModal extends Modal {
   }
 
   content() {
-    const tagSelectOptions = this.attrs.discussion.tags().filter(tag => tag.isArticleSeries()).reduce((acc, tag) => {
-      acc[tag.id()] = tag.name();
-      return acc;
-    }, {});
+    const tagSelectOptions = this.attrs.discussion
+      .tags()
+      .filter((tag) => tag.isArticleSeries())
+      .reduce((acc, tag) => {
+        acc[tag.id()] = tag.name();
+        return acc;
+      }, {});
     tagSelectOptions['NULL'] = 'None';
 
     return (
