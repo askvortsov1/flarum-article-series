@@ -24,7 +24,6 @@ export default class ArticleSeriesList extends Component {
   }
 
   articleItem(article, i) {
-    console.log(m.route.param('id'), article.slug())
     return (
       <Link
         href={app.route('blogArticle', {id: article.slug()})}
