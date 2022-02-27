@@ -37,5 +37,5 @@ php flarum cache:clear
 ### Links
 
 - [Packagist](https://packagist.org/packages/askvortsov/flarum-article-series)
-- [GitHub](https://github.com/askvortsov/flarum-article-series)
+- [GitHub](https://github.com/askvortsov1/flarum-article-series)
 - [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
